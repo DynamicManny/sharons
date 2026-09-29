@@ -5,8 +5,7 @@
   const CONFIG = {
     name: "Sharons",
     // Digits only, country code first, no plus sign or spaces.
-    // Barbados numbers look like 1246XXXXXXX.
-    whatsapp: "1246243-4022",
+    whatsapp: "12462434022",
     area: "St. Joseph, Barbados",
     // Example: "Tuesday to Saturday, 9am to 5pm". Leave empty to hide the line.
     hours: "",
@@ -118,6 +117,65 @@
   }
   buildTapes();
   window.addEventListener("resize", buildTapes);
+
+  // Gallery hover tag: follows the cursor over a work photo, naming
+  // what the piece was. Real hover pointers only, one shared element
+  // eased toward the pointer rather than snapping to it.
+  const grid = $(".work-grid");
+  const follow = $("#tag-follow");
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  if (grid && follow && canHover) {
+    let targetX = 0;
+    let targetY = 0;
+    let x = 0;
+    let y = 0;
+    let active = false;
+    let raf = null;
+
+    const tick = () => {
+      x += (targetX - x) * 0.2;
+      y += (targetY - y) * 0.2;
+      follow.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+      if (active || Math.abs(targetX - x) > 0.5 || Math.abs(targetY - y) > 0.5) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        raf = null;
+      }
+    };
+
+    const start = () => {
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+
+    grid.addEventListener("pointermove", (event) => {
+      const bounds = grid.getBoundingClientRect();
+      targetX = event.clientX - bounds.left;
+      targetY = event.clientY - bounds.top;
+      if (!active) {
+        x = targetX;
+        y = targetY;
+      }
+      start();
+
+      const tile = event.target.closest("[data-tag]");
+      if (tile) {
+        if (!active || follow.textContent !== tile.dataset.tag) {
+          follow.textContent = tile.dataset.tag;
+        }
+        active = true;
+        follow.classList.add("is-visible");
+      } else {
+        active = false;
+        follow.classList.remove("is-visible");
+      }
+    });
+
+    grid.addEventListener("pointerleave", () => {
+      active = false;
+      follow.classList.remove("is-visible");
+    });
+  }
 
   // Fitting request form: builds a WhatsApp message, no backend needed
   const form = $("#fitting");

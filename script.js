@@ -4,7 +4,11 @@
   // ------------------------------------------------------------------
   const CONFIG = {
     name: "Sharons",
+    // The name used in WhatsApp greetings, e.g. "Sharon". Leave empty
+    // to use `name` above instead.
+    greetingName: "Sharon",
     // Digits only, country code first, no plus sign or spaces.
+    // Barbados numbers look like 1246XXXXXXX.
     whatsapp: "12462434022",
     area: "St. Joseph, Barbados",
     // Example: "Tuesday to Saturday, 9am to 5pm". Leave empty to hide the line.
@@ -45,7 +49,7 @@
   // Plain WhatsApp links. Until a number is set they fall back to the form.
   $$("[data-wa]").forEach((link) => {
     if (!numberSet) return;
-    link.href = waUrl(`Hi ${CONFIG.name}, I'd like to ask about your services.`);
+    link.href = waUrl(`Hi ${CONFIG.greetingName || CONFIG.name}, I'd like to ask about your services.`);
     link.target = "_blank";
     link.rel = "noopener";
   });
@@ -248,7 +252,7 @@
     }
 
     const lines = [
-      `Hi ${CONFIG.name}, I'd like to request a fitting.`,
+      `Hi ${CONFIG.greetingName || CONFIG.name}, I'd like to request a fitting.`,
       "",
       `Name: ${nameInput.value.trim()}`,
       `Need: ${serviceInput.value}`,

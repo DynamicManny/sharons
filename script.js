@@ -6,7 +6,7 @@
     name: "Sharons",
     // Digits only, country code first, no plus sign or spaces.
     // Barbados numbers look like 1246XXXXXXX.
-    whatsapp: "1246XXXXXXX",
+    whatsapp: "1246243-4022",
     area: "St. Joseph, Barbados",
     // Example: "Tuesday to Saturday, 9am to 5pm". Leave empty to hide the line.
     hours: "",
@@ -80,9 +80,26 @@
   // Before and after slider
   $$(".ba").forEach((ba) => {
     const range = $(".ba-range", ba);
+    const handle = $(".ba-handle", ba);
     const update = () => ba.style.setProperty("--pos", `${range.value}%`);
     range.addEventListener("input", update);
     update();
+
+    // Nudge the handle once, the first time it scrolls into view, as a
+    // hint that it drags. Not a scroll-reveal, just a one-time invitation.
+    if ("IntersectionObserver" in window) {
+      const hint = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            handle.classList.add("hint");
+            observer.disconnect();
+          });
+        },
+        { threshold: 0.6 }
+      );
+      hint.observe(ba);
+    }
   });
 
   // Measuring tape numbers

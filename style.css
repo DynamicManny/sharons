@@ -943,3 +943,41 @@ textarea:focus {
     left: calc(var(--pos) + 10px);
   }
 }
+
+/* Gallery hover: a small tag follows the cursor over a work photo,
+   naming what the piece was. Desktop-only, real hover devices only. */
+
+.work-grid {
+  position: relative;
+}
+
+.tag-follow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--marigold);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  will-change: transform, opacity;
+}
+
+.tag-follow.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .tag-follow {
+    display: none;
+  }
+}

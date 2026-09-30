@@ -1,14 +1,16 @@
 /* Sharons: dressmaking and alterations
-   Palette: indigo dye, chalk, marigold thread, ink.
-   Devices: measuring tape, stitched (dashed) outlines, pinked (zigzag) edges. */
+   Palette: rose gold, charcoal, and a deep green undertone.
+   Devices: measuring tape, stitched (dashed) outlines, pinked (zigzag) edges.
+   Variable names below (--indigo, --marigold, --blueprint) are historical;
+   only the colour VALUES changed, so search-and-replace still works. */
 
 :root {
-  --ink: #0d1230;
-  --indigo: #1b34b0;
-  --chalk: #f6f7f3;
-  --blueprint: #e4eaf8;
-  --marigold: #ffb81c;
-  --muted: #3a4275;
+  --ink: #14181a;        /* charcoal */
+  --indigo: #1c2b26;      /* deep green */
+  --chalk: #f7f2ef;       /* warm cream */
+  --blueprint: #f3e6e2;   /* soft rose tint, used as a section wash */
+  --marigold: #e0a2a2;    /* rose gold */
+  --muted: #6b625c;
   --error: #b3261e;
   --radius: 6px;
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
@@ -97,8 +99,8 @@ h3 {
 }
 
 .btn:hover {
-  border-color: #ffc845;
-  background: #ffc845;
+  border-color: #ecc2c2;
+  background: #ecc2c2;
 }
 
 .btn-ghost {
@@ -236,7 +238,7 @@ h3 {
   height: 46px;
   overflow: hidden;
   background-color: var(--marigold);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='16'%3E%3Cg stroke='%230D1230' stroke-width='1.5'%3E%3Cpath d='M1 0v16M10 0v6M20 0v6M30 0v6M40 0v11M50 0v6M60 0v6M70 0v6'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='16'%3E%3Cg stroke='%2314181A' stroke-width='1.5'%3E%3Cpath d='M1 0v16M10 0v6M20 0v6M30 0v6M40 0v11M50 0v6M60 0v6M70 0v6'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-position: 0 0;
   color: var(--ink);
@@ -308,11 +310,11 @@ h3 {
   gap: 16px 40px;
   align-items: baseline;
   padding-block: 30px;
-  border-top: 2px dashed rgba(13, 18, 48, 0.45);
+  border-top: 2px dashed rgba(20, 24, 26, 0.45);
 }
 
 .service:last-child {
-  border-bottom: 2px dashed rgba(13, 18, 48, 0.45);
+  border-bottom: 2px dashed rgba(20, 24, 26, 0.45);
 }
 
 .service h3 {
@@ -363,8 +365,8 @@ h3 {
 
 .slot.is-empty {
   background-color: var(--chalk);
-  background-image: linear-gradient(rgba(27, 52, 176, 0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(27, 52, 176, 0.14) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(28, 43, 38, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 43, 38, 0.14) 1px, transparent 1px);
   background-size: 26px 26px;
 }
 
@@ -373,7 +375,7 @@ h3 {
 }
 
 .slot.is-empty::after {
-  border-color: rgba(27, 52, 176, 0.55);
+  border-color: rgba(28, 43, 38, 0.55);
 }
 
 .slot-label {
@@ -491,7 +493,7 @@ h3 {
   z-index: 3;
   padding: 7px 12px;
   border-radius: 4px;
-  background: rgba(13, 18, 48, 0.8);
+  background: rgba(20, 24, 26, 0.8);
   color: var(--chalk);
   font-family: var(--display);
   font-size: 0.9rem;
@@ -574,7 +576,7 @@ h3 {
 }
 
 .process::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpath d='M0 10L10 0L20 10Z' fill='%231B34B0'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpath d='M0 10L10 0L20 10Z' fill='%231C2B26'/%3E%3C/svg%3E");
 }
 
 .process .section-head p {
@@ -752,7 +754,7 @@ textarea:focus {
 }
 
 .footer::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpath d='M0 10L10 0L20 10Z' fill='%230D1230'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpath d='M0 10L10 0L20 10Z' fill='%2314181A'/%3E%3C/svg%3E");
 }
 
 .footer-grid {

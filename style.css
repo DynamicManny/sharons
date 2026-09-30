@@ -5,12 +5,12 @@
    only the colour VALUES changed, so search-and-replace still works. */
 
 :root {
-  --ink: #14181a;        /* charcoal */
-  --indigo: #1c2b26;      /* deep green */
-  --chalk: #f7f2ef;       /* warm cream */
-  --blueprint: #f3e6e2;   /* soft rose tint, used as a section wash */
-  --marigold: #e0a2a2;    /* rose gold */
-  --muted: #6b625c;
+  --ink: #595e48;        /* dark olive, the only true dark in this palette */
+  --indigo: #919682;      /* sage green, a medium panel colour (process section) */
+  --chalk: #eecfca;       /* light blush */
+  --blueprint: #c7cdbf;   /* light sage-grey, a second light section wash */
+  --marigold: #c7a491;    /* rose gold */
+  --muted: #7d8270;
   --error: #b3261e;
   --radius: 6px;
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
@@ -65,14 +65,17 @@ h3 {
 }
 
 :focus-visible {
-  outline: 3px solid var(--indigo);
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 
 .top :focus-visible,
-.process :focus-visible,
 .footer :focus-visible {
   outline-color: var(--marigold);
+}
+
+.process :focus-visible {
+  outline-color: var(--ink);
 }
 
 .wrap {
@@ -99,8 +102,8 @@ h3 {
 }
 
 .btn:hover {
-  border-color: #ecc2c2;
-  background: #ecc2c2;
+  border-color: #f5ded9;
+  background: #f5ded9;
 }
 
 .btn-ghost {
@@ -112,7 +115,7 @@ h3 {
 .btn-ghost:hover {
   border-color: var(--chalk);
   background: var(--chalk);
-  color: var(--indigo);
+  color: var(--ink);
 }
 
 .btn-small {
@@ -123,7 +126,7 @@ h3 {
 /* Top: nav + hero */
 
 .top {
-  background: var(--indigo);
+  background: var(--ink);
   color: var(--chalk);
 }
 
@@ -223,12 +226,12 @@ h3 {
 
 .hero-photo::before {
   top: -1px;
-  border-top: 12px solid var(--indigo);
+  border-top: 12px solid var(--ink);
 }
 
 .hero-photo::after {
   bottom: -1px;
-  border-bottom: 12px solid var(--indigo);
+  border-bottom: 12px solid var(--ink);
 }
 
 /* Measuring tape */
@@ -238,7 +241,7 @@ h3 {
   height: 46px;
   overflow: hidden;
   background-color: var(--marigold);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='16'%3E%3Cg stroke='%2314181A' stroke-width='1.5'%3E%3Cpath d='M1 0v16M10 0v6M20 0v6M30 0v6M40 0v11M50 0v6M60 0v6M70 0v6'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='16'%3E%3Cg stroke='%23595E48' stroke-width='1.5'%3E%3Cpath d='M1 0v16M10 0v6M20 0v6M30 0v6M40 0v11M50 0v6M60 0v6M70 0v6'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-position: 0 0;
   color: var(--ink);
@@ -310,11 +313,11 @@ h3 {
   gap: 16px 40px;
   align-items: baseline;
   padding-block: 30px;
-  border-top: 2px dashed rgba(20, 24, 26, 0.45);
+  border-top: 2px dashed rgba(89, 94, 72, 0.45);
 }
 
 .service:last-child {
-  border-bottom: 2px dashed rgba(20, 24, 26, 0.45);
+  border-bottom: 2px dashed rgba(89, 94, 72, 0.45);
 }
 
 .service h3 {
@@ -365,8 +368,8 @@ h3 {
 
 .slot.is-empty {
   background-color: var(--chalk);
-  background-image: linear-gradient(rgba(28, 43, 38, 0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(28, 43, 38, 0.14) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(145, 150, 130, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(145, 150, 130, 0.16) 1px, transparent 1px);
   background-size: 26px 26px;
 }
 
@@ -375,7 +378,7 @@ h3 {
 }
 
 .slot.is-empty::after {
-  border-color: rgba(28, 43, 38, 0.55);
+  border-color: rgba(145, 150, 130, 0.6);
 }
 
 .slot-label {
@@ -384,7 +387,7 @@ h3 {
   display: grid;
   place-content: center;
   padding: 24px;
-  color: var(--indigo);
+  color: var(--ink);
   font-family: var(--display);
   font-size: 1rem;
   font-weight: 600;
@@ -493,7 +496,7 @@ h3 {
   z-index: 3;
   padding: 7px 12px;
   border-radius: 4px;
-  background: rgba(20, 24, 26, 0.8);
+  background: rgba(89, 94, 72, 0.85);
   color: var(--chalk);
   font-family: var(--display);
   font-size: 0.9rem;
@@ -552,7 +555,7 @@ h3 {
 }
 
 .ba:focus-within .ba-handle::after {
-  outline: 3px solid var(--indigo);
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 
@@ -561,7 +564,7 @@ h3 {
 .process {
   position: relative;
   background: var(--indigo);
-  color: var(--chalk);
+  color: var(--ink);
 }
 
 .process::before,
@@ -576,7 +579,7 @@ h3 {
 }
 
 .process::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpath d='M0 10L10 0L20 10Z' fill='%231C2B26'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpath d='M0 10L10 0L20 10Z' fill='%23919682'/%3E%3C/svg%3E");
 }
 
 .process .section-head p {
@@ -600,7 +603,7 @@ h3 {
   top: 23px;
   right: 23px;
   left: 23px;
-  border-top: 2px dashed rgba(246, 247, 243, 0.55);
+  border-top: 2px dashed rgba(89, 94, 72, 0.4);
 }
 
 .step {
@@ -706,7 +709,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--indigo);
+  border-color: var(--ink);
   outline: 3px solid var(--marigold);
   outline-offset: 0;
 }
@@ -754,7 +757,7 @@ textarea:focus {
 }
 
 .footer::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpath d='M0 10L10 0L20 10Z' fill='%2314181A'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpath d='M0 10L10 0L20 10Z' fill='%23595E48'/%3E%3C/svg%3E");
 }
 
 .footer-grid {
@@ -825,7 +828,7 @@ textarea:focus {
     bottom: 23px;
     left: 22px;
     border-top: 0;
-    border-left: 2px dashed rgba(246, 247, 243, 0.55);
+    border-left: 2px dashed rgba(89, 94, 72, 0.4);
   }
 
   .step {
